@@ -360,12 +360,45 @@ Route::get('/admins-only', function(){
 
 ### Push Local Laravel to Github
 1. **Create Github Repo** - However, do not initialize it with a README or .gitignore at this point.
-2. In Laravel project directory check if there is a Git repository with 
+2. **Initialize Repo** - In Laravel project directory check if there is a Git repository with 
     - `git status`
     - If this fails, not a git repository then initialize one with the ole' 
         - `git init`
-3. 
 
+3. **Set Remote URL**
+4. **Add changes and commit**
+5. **Push up to the remote**
+
+
+### Copy Project to another directory
+
+1. Copy files Locally
+    - `cp -r path/to/myApp path/to/newProject`
+
+### Copy Project to another directory on another computer
+1. Clone the repository
+    - `git clone https://github.com/your_username/myApp.git`
+
+2. Copy Files to new directory 'newProject'
+    - `cp -r myApp path/to/newProject`
+
+3. Navigate to 'newProject' Directory
+    - `cd path/to/newProject`
+
+4. **CHANGE REMOTE URL** - point the 'newProject' to the new clean repo: 
+    `git remote set-url origin https://github.com/your_username/newProjectRepo.git`
+
+5. Make changes and Push: 
+    ```js
+    git add .
+    git commit -m "Your commit message"
+    git push -u origin master
+    ```
+6. _There should not be any conflict between the two projects as long as you are working in separate directories ('myApp' and 'newProject'). Each project will have its own Git repository, and changes made in one project will not affect the other._
+
+7. _When you copy files from 'path/to/myApp' to 'path/to/newProject', you are essentially duplicating the project directory. The initialized Git repository (the .git directory) is part of the project structure, and it will be copied along with the files. As a result, the new directory ('newProject') will still be associated with the same Git repository as the original ('myApp')._
+    - **You can confirm this by checking if the 'newProject' directory contains '.git' directory with this command to attempt to change into the '.git' repository:**
+        - `ls path/to/newProject/.git`
 
 
 ---
