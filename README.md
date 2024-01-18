@@ -397,9 +397,32 @@ Route::get('/admins-only', function(){
 6. _There should not be any conflict between the two projects as long as you are working in separate directories ('myApp' and 'newProject'). Each project will have its own Git repository, and changes made in one project will not affect the other._
 
 7. _When you copy files from 'path/to/myApp' to 'path/to/newProject', you are essentially duplicating the project directory. The initialized Git repository (the .git directory) is part of the project structure, and it will be copied along with the files. As a result, the new directory ('newProject') will still be associated with the same Git repository as the original ('myApp')._
-    - **You can confirm this by checking if the 'newProject' directory contains '.git' directory with this command to attempt to change into the '.git' repository:**
-        - `ls path/to/newProject/.git`
+    - **You can confirm this by checking if the 'newProject' directory contains '.git' directory with this command to attempt to ls the '.git' repository:**
+    - 
+    - `ls path/to/newProject/.git`
+        ```js
+        $ ls ourmainapp/.git
+        COMMIT_EDITMSG  config       hooks/  info/  objects/
+        HEAD            description  index   logs/  refs/
 
+        ```
+    - If no git repository exists, expect a result like: 
+        ```js
+        $ ls dent/.git
+        ls: cannot access 'dent/.git': No such file or directory
+
+        ```
+    - To remove multiple non-empty directories, use: 
+        - `rm -r directory1 directory2 directory3`
+    - To remove an empty directory use: 
+        `rmdir directory_name`
+    - **(Optional):** _Confirming Deletion_ vs _Force Removal_
+        - _If you want to be prompted for confirmation before each removal, you can use the `-i` (interactive) flag:_
+            `rm -ri directory_name`
+        - _If you want to force removal without any confirmation, you can use the `-f` (force) flag:_
+            - `rm -rf directory_name`
+    - x
+`
 
 ---
 
