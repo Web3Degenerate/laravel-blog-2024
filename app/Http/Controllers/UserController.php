@@ -77,7 +77,7 @@ class UserController extends Controller
         
         // (16:50): Log in newly registered user: https://www.udemy.com/course/lets-learn-laravel-a-guided-path-for-beginners/learn/lecture/34207658#overview
         auth()->login($user); //sends along cookie session so user logged in
-        
+            
         // return 'Connection to UserController success';
         // (16:15) - return redirect to '/' with success message: https://www.udemy.com/course/lets-learn-laravel-a-guided-path-for-beginners/learn/lecture/34207658#overview
         return redirect('/')->with('success', 'Thank you for creating an account');

@@ -421,7 +421,17 @@ Route::get('/admins-only', function(){
             `rm -ri directory_name`
         - _If you want to force removal without any confirmation, you can use the `-f` (force) flag:_
             - `rm -rf directory_name`
-    - x
+    - **AFTER COPYING FOLDER:** The git repository was still present in the new directory. 
+        - So to set the new remote repo, use command: 
+            - `git remote set-url origin <repo-link>`
+            - Then `git add .`
+            - `git commit -m "<commit-message>"`
+            - `git push -u origin master`
+    - **Command to get the remote origin**:
+        - `git remote show origin`
+            - returns something like: _https://github.com/username/laravel-blog-2024.git_
+            - x
+
 `
 
 ---
